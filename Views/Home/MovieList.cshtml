@@ -1,0 +1,74 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Movie List";
+}
+
+@model IEnumerable<Baby.Models.Movie>
+
+<div>
+    <h2>Movies</h2>
+        
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>MovieID</th>
+                        <th>Category</th>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Director</th>
+                        <th>Rating</th>
+                        <th>Edited</th>
+                        <th>Lent To</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    @foreach (Baby.Models.Movie x in Model)
+                    {
+
+                    <tr>
+                        <td>@x.MovieID</td>
+                      
+                        <td>@x.Category</td>
+
+                        <td>@x.Title</td>
+
+                        <td>@x.Year</td>
+
+                        <td>@x.Director</td>
+                        
+                        <td>@x.Rating</td>
+                        
+                        <td>@x.Edited</td>
+                        
+                        <td>@x.Lent</td>
+
+                        <td>@x.Notes</td>
+
+                        <td>
+                            <!--Submit MovieID to EditMovie using get method-->
+                            <form asp-action="EditMovie" method="get">
+                                <input type="hidden" name="movieid" value="@x.MovieID" />
+                                <button type="submit">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <!--Submit MovieID to Delete-->
+                            <form asp-action="DeleteMovie">
+                                <input type="hidden" name="movieid" value="@x.MovieID" />
+                                <button asp-action="DeleteMovie" type="submit">Delete</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    }
+                </tbody>
+
+            </table>
+        
+</div>

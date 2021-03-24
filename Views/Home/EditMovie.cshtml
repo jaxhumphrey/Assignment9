@@ -1,0 +1,52 @@
+﻿@model Baby.Models.Movie
+
+<form asp-action="EditMovie" method="post">
+    <div>
+        <label asp-for="MovieID">MovieID: </label>
+        <input name="movieid" asp-for="MovieID" value="@Model.MovieID" readonly/>
+    </div>
+
+    <div>
+        <label asp-for="Category">Category: </label>
+        <input name="category" asp-for="Category" value="@Model.Category" />
+    </div>
+
+    <div>
+        <label asp-for="Title">Title: </label>
+        <input name="title" asp-for="Title" value="@Model.Title" />
+    </div>
+
+    <div>
+        <label asp-for="Year">Year: </label>
+        <input name="year" asp-for="Year" value="@Model.Year" />
+    </div>
+
+    <div>
+        <label asp-for="Director">Director: </label>
+        <input name="director" asp-for="Director" value="@Model.Director" />
+    </div>
+
+    <div>
+        <label asp-for="Rating" for="Rating">Rating:</label>
+        <input name="rating" asp-for="Rating" value="@Model.Rating" />
+    </div>
+
+    <div>
+        <label asp-for="Edited" for="Edited">Edited: </label>
+        <select id="Edited" name="edited" asp-for="Edited">
+            <option value="False" selected>False</option>
+            <option value="True">True</option>
+        </select>
+    </div>
+
+    <div>
+        <label asp-for="Lent">Lent To: </label>
+        <input name="lent" asp-for="Lent" />
+    </div>
+
+    <div>
+        <label asp-for="Notes">Notes: </label>
+        <input name="notes" asp-for="Notes" maxlength="25" />
+    </div>
+    <button type="submit">Update</button>
+</form>
